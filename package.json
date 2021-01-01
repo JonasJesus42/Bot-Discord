@@ -1,0 +1,23 @@
+{
+  "name": "bot-discord",
+  "version": "1.0.0",
+  "description": "bot para discord em Java Script",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhonLevom/Bot-Discord.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JhonLevom/Bot-Discord/issues"
+  },
+  "homepage": "https://github.com/JhonLevom/Bot-Discord#readme"
+}
