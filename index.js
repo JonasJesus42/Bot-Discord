@@ -7,26 +7,23 @@ client.on('ready', () =>{
     console.log(`Logado em ${client.user.tag}!`)
 })
 
-
-
 // codigo para executat os comandos com nomes dos arquivos
-
 client.on('message', async msg => {
-    console.log("ok")
+    //configurando quais mensagem vão ser lidas e caracteres
     if(msg.author.bot) return
     if(msg.channel.type === "dm") return
-    if(!msg.content.startstWith(config.prefix)) return
+    if(!msg.content.startsWith(config.prefix)) return
     if(msg.content.startsWith(`<@!${client.user.id}`) || 
        msg.content.startsWith(`<@${client.user.id}`)) return
-    console.log("ok1")
-    let args = msg.content.split(" ").slide(1)
-    let comando = msg.content.split(" ")[0]
-    comando = comando.split(config.prefix.length)
-    console.log("ok2")
+    //separando o argumento do comando
+    let args = msg.content.split("  ").slice(1);
+    let comando = msg.content.split(" ")[0];
+    comando = comando.slice(config.prefix.length);
+    //codigo para que os arquivos na pasta comandos sejam comandos
     try{
         let comandFile = require(`./comandos/${comando}.js` )
         delete require.cache[require.resolve(`./comandos/${comando}.js`)]
-        return comandFile.run(client, msg, args)
+        return comandFile.set(client, msg, args)
     }catch(err){
         console.error("erro" + err)
     }
